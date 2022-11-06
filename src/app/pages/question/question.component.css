@@ -1,0 +1,9 @@
+.name-question{
+    font-size: 18px;
+    color: #144069;
+    font-weight: 500;
+}
+
+.score{
+    display: flex;
+}
