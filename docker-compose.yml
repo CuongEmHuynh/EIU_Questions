@@ -1,0 +1,24 @@
+version: '3'
+
+#VOLUMES
+# volumes:
+#   my-dir:
+#     dirver
+
+#NETWORK
+networks:
+  web-net:
+    external: true
+
+#SERVICES
+services:
+  eiu-question:
+    hostname: eiu-question
+    container_name: eiu-question
+    image: huynhcuongem75/eiu-question:v1.0
+    build: .
+    restart: always
+    networks:
+      - web-net
+    ports:
+      - 2011:80

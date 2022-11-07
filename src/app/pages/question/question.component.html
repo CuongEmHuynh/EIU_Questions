@@ -1,20 +1,19 @@
-<div class="container mt-3" >
+<div class="container mt-3">
   <div class="col-8">
     <div id="qestions" *ngFor="let item of questions; index as i">
       <div [id]="i">
         <div class="content">
           <span class="no">{{i+1}}.</span>
-          
+
           <span class="name-question">{{item.name}}</span>
-        </div> <br> 
+        </div> <br>
         <div class="score">
           <app-rating [id]="i" (rating)="getDataEmit($event)"></app-rating>
         </div>
       </div>
+
+      
     </div>
+    <button class="btn btn-success" (click)="getTotalSocre()"><i class="fa fa-send"></i>Gửi đi</button>
   </div>
 </div>
-
-
-
-<button (click)="getTotalSocre()">test</button>
