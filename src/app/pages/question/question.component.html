@@ -1,19 +1,30 @@
-<div class="container mt-3">
-  <div class="col-8">
-    <div id="qestions" *ngFor="let item of questions; index as i">
-      <div [id]="i">
-        <div class="content">
-          <span class="no">{{i+1}}.</span>
-
-          <span class="name-question">{{item.name}}</span>
-        </div> <br>
-        <div class="score">
-          <app-rating [id]="i" (rating)="getDataEmit($event)"></app-rating>
+<div class="container mt-3" id="question">
+  <div class="row">
+    <div class="col-md-8 col-12 mx-auto">
+      <app-explain></app-explain>
+      <div class="content">
+        <div id="qestions" *ngFor="let item of questions; index as i">
+          <div [id]="i">
+            <div class="content">
+              <span class="no">{{i+1}}
+                <i class="fa fa-angle-double-right"></i>
+              </span>
+              <span class="name-question">{{item.name}}</span>
+            </div>
+            <div class="score">
+              <app-rating [id]="i" (rating)="getDataEmit($event)"></app-rating>
+            </div>
+          </div>
         </div>
       </div>
+      <div class="page">
 
-      
+        <button class="btn" *ngIf="cateId <6 else btnResult "  (click)="nextPage()"><i class="fa fa-angle-double-right mr-2"></i>Tiếp tục</button>
+        <ng-template #btnResult>
+          <button class="btn" (click)="finishAnswer()"> Submit</button>
+        </ng-template>
+      </div>
     </div>
-    <button class="btn btn-success" (click)="getTotalSocre()"><i class="fa fa-send"></i>Gửi đi</button>
   </div>
 </div>
+<app-info-user #infoModal></app-info-user>

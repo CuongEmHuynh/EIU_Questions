@@ -1,0 +1,30 @@
+
+.note {
+    display: flex;
+    justify-content: right;
+}
+.explain{
+    color: #333;
+    padding: 10px;
+    box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    width: 50%;
+ 
+}
+
+.explain p {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #144069;
+}
+
+@media only screen and (max-width: 600px) {
+    .note {
+        display: block;
+    }
+    .explain {
+        width: 100%;
+    }
+  }

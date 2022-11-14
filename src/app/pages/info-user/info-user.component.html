@@ -1,0 +1,86 @@
+<button class="btn btn-primary" (click)="showModal()">Large modal</button>
+ 
+<div bsModal #infoModal="bs-modal" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="dialog-sizes-name1" [config]="{backdrop: 'static'}">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-sizes-name1" class="modal-title pull-left">Thông tin </h4>
+        <button type="button" class="btn-close close pull-right" (click)="infoModal.hide()" aria-label="Close">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form name="form"  [formGroup]="formInfoGroup" >
+          <div class="form-group row">
+            <div class="col-md-12">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Họ và Tên</span>
+                </div>
+                <input type="text" class="form-control" name="fullName" formControlName="fullName" placeholder="Nguyễn Văn A" 
+                [class.is-invalid]="f['fullName'].invalid && (f['fullName'].dirty || f['fullName'].touched)">
+
+                <div *ngIf="f['fullName'].invalid && (f['fullName'].dirty || f['fullName'].touched)" class="invalid-feedback">
+                  <div *ngIf="f['fullName'].errors?.['required']">
+                    Bắt buộc nhập họ và tên
+                  </div>
+                </div>
+              </div>
+            
+            </div>
+           
+          </div>
+          <div class="form-group row">
+            <div class="col-md-12">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Email</span>
+                </div>
+                <input type="text" class="form-control" placeholder="@gmail" name="email"
+                formControlName="email"  [class.is-invalid]="f['email'].invalid && (f['email'].dirty || f['email'].touched)" >
+
+                <div *ngIf="f['email'].invalid && (f['email'].dirty || f['email'].touched)" class="invalid-feedback">
+                  <div *ngIf="f['email'].errors?.['required']">
+                    Bắt buộc nhập email
+                  </div>
+                  <div *ngIf="!f['email'].errors?.['required'] && f['email'].errors?.['emailValidator']">
+                   Email không đúng định dạng
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+          <div class="form-group row">
+            <div class="col-md-12">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Số điện thoại</span>
+                </div>
+                <input type="text"  class="form-control" placeholder="090xxxxxxx" name="phoneNumber"
+                formControlName="phoneNumber"  [class.is-invalid]="f['phoneNumber'].invalid && (f['phoneNumber'].dirty || f['phoneNumber'].touched)" >
+
+                <div *ngIf="f['phoneNumber'].invalid && (f['phoneNumber'].dirty || f['phoneNumber'].touched)" class="invalid-feedback">
+                  <div *ngIf="f['phoneNumber'].errors?.['required']">
+                    Bắt buộc nhập số điện thoại
+                  </div>
+                  <div *ngIf="f['phoneNumber'].errors?.['maxlength']">
+                    Tối đa 10 số điện thoại
+                  </div>
+                  <div *ngIf="f['phoneNumber'].errors?.['pattern']">
+                    Sai định dạng số điện thoại
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" (click)="getUser()">Gửi đi</button>
+      </div>
+    </div>
+  </div>
+</div>

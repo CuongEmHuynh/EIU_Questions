@@ -1,13 +1,12 @@
 export class Question {
     name: string;
     score: number;
-    cateId: number;
-    readonly: boolean
-    
+    cateQuestionId: number;
+    isAnswer: boolean = false;
+
     constructor(name: string, score: number, cateId: number) {
         this.name = name;
         this.score = score;
-        this.cateId = cateId;
-        this.readonly = false;
+        this.cateQuestionId = cateId;
     }
 }

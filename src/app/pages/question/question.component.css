@@ -1,9 +1,36 @@
-.name-question{
-    font-size: 18px;
-    color: #144069;
-    font-weight: 500;
+#question {
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
-.score{
+.no {
+    margin-right: 5px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #144069;
+}
+
+.name-question {
+    margin-left: 10px;
+    font-size: 1.5rem;
+    color: #A78656;
+    font-weight: 500;
+    line-height: initial;
+    text-align: justify;
+}
+
+
+.score {
     display: flex;
+    margin-left:  20px;
+}
+.page {
+    margin-top: 25px;
+    text-align: center;
+}
+.btn {
+    background-color: #144069;
+    color: #fff;
 }
