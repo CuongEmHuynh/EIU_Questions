@@ -10,6 +10,7 @@ import { RatingComponent } from './rating/rating.component';
 import { ExplainComponent } from './explain/explain.component';
 import { InfoUserComponent } from './info-user/info-user.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ResultComponent } from './result/result.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
         QuestionComponent,
         RatingComponent,
         ExplainComponent,
-        InfoUserComponent],
+        InfoUserComponent,
+        ResultComponent],
 })
 export class PageModule { }

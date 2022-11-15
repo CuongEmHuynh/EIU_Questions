@@ -1,8 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { emailValidator } from 'src/app/core/common/validation';
 import { CateQuestion } from 'src/app/core/models/cate-question';
+import { User } from 'src/app/core/models/user';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-info-user',
@@ -15,6 +17,8 @@ export class InfoUserComponent implements OnInit {
 
   submitted: boolean = false
   formInfoGroup!: FormGroup
+
+  public _serviceUser = inject(UserService);
   constructor(private fb: FormBuilder) {
 
   }
@@ -29,14 +33,12 @@ export class InfoUserComponent implements OnInit {
 
   showModal(cate: CateQuestion | undefined = undefined) {
     this.cateQuestion = cate;
-    console.log(this.cateQuestion);
     this.infoModal?.show();
   }
 
   initForm() {
     this.formInfoGroup = this.fb.group({
       fullName: ['', Validators.required],
-      address: ['', Validators.required],
       email: ['', [Validators.required, emailValidator()]],
       phoneNumber: ['', [Validators.required, Validators.maxLength(10), Validators.pattern('^[0-9]+$')]],
     })
@@ -53,8 +55,15 @@ export class InfoUserComponent implements OnInit {
 
   getUser() {
     if (this.validateForm()) {
-      
+      let user: User = this.formInfoGroup.value;
+      user.cateQuestionId = this.cateQuestion?.id;
+      user.totalScore = this.cateQuestion?.totalScore ?? 0;
+
+      this._serviceUser.addUser(user).subscribe(res => {
+        this.infoModal?.hide();
+      })
     }
+
   }
 
 }

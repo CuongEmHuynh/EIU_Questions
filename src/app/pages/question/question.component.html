@@ -21,7 +21,7 @@
 
         <button class="btn" *ngIf="cateId <6 else btnResult "  (click)="nextPage()"><i class="fa fa-angle-double-right mr-2"></i>Tiếp tục</button>
         <ng-template #btnResult>
-          <button class="btn" (click)="finishAnswer()"> Submit</button>
+          <button class="btn" (click)="finishAnswer()"> <i class="fa fa-angle-double-right mr-2"></i>Tiếp tục</button>
         </ng-template>
       </div>
     </div>

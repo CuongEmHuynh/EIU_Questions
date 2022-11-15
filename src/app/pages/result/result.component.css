@@ -1,0 +1,29 @@
+.result{
+    padding: 15px;
+}
+
+h3.title{
+    color: red;
+    font-weight: 700;
+
+}
+.content{
+    padding: 10px;
+}
+
+.content .title{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.content .desription{
+    font-weight: 300;
+    font-size: 16;
+    font-style: italic;
+}
+.good-luck{
+    text-align: center;
+    color: red;
+    font-size: 25px;
+    font-weight: 700;
+}
