@@ -1,5 +1,6 @@
 import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { emailValidator } from 'src/app/core/common/validation';
 import { CateQuestion } from 'src/app/core/models/cate-question';
@@ -18,6 +19,7 @@ export class InfoUserComponent implements OnInit {
   submitted: boolean = false
   formInfoGroup!: FormGroup
 
+  public _router = inject(Router)
   public _serviceUser = inject(UserService);
   constructor(private fb: FormBuilder) {
 
@@ -61,6 +63,7 @@ export class InfoUserComponent implements OnInit {
 
       this._serviceUser.addUser(user).subscribe(res => {
         this.infoModal?.hide();
+        this._router.navigateByUrl("/result")
       })
     }
 

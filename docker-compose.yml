@@ -12,10 +12,10 @@ networks:
 
 #SERVICES
 services:
-  eiu-question:
-    hostname: eiu-question
-    container_name: eiu-question
-    image: huynhcuongem75/eiu-question:v1.0
+  question-eiu-spa:
+    hostname: question-eiu-spa
+    container_name: question-eiu-spa
+    image: huynhcuongem75/question-eiu-spa:v1.0
     build: .
     restart: always
     networks:
